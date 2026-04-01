@@ -1,70 +1,186 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🏥 Early Warning Sepsis Detector (EWSD) — Frontend
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-Frontend-blue)
+![Tailwind](https://img.shields.io/badge/TailwindCSS-Styling-38bdf8)
+![Status](https://img.shields.io/badge/Status-Prototype-yellow)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-In the project directory, you can run:
+A modern **clinical decision-support dashboard** that helps doctors and nurses detect early signs of **sepsis** using real-time patient data and predictive analytics.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The **EWSD Frontend** is a responsive React-based dashboard that visualizes:
 
-### `npm test`
+- 📊 Patient vitals and trends  
+- ⚠️ Real-time sepsis risk scores  
+- 🚨 Intelligent alerting system  
+- 🧠 Explainable AI (XAI) insights  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Built as part of a Software Engineering Lab project at VIT.
 
-### `npm run build`
+> This project is based on a full Software Requirements Specification and system design including DFDs, ER diagrams, and ML workflow. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧠 System Architecture
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🔹 Data Flow (DFD Level 0 & 1)
+- Data flows from **Hospital EHR → EWSD → Clinicians**
+- Alerts are triggered and sent to rapid response teams  
+- System logs and reports are maintained for audit  
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🔹 Core Workflow
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. 📥 Data ingestion from hospital systems  
+2. 🧹 Data cleaning & normalization  
+3. 🤖 ML inference (risk score 0–1)  
+4. ⚠️ Threshold-based alerting  
+5. 👨‍⚕️ Clinician intervention  
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🔹 Class & Data Model
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Patient is the central entity  
+- Linked with:
+  - Vital Signs  
+  - Lab Results  
+  - Risk Scores  
+  - Alerts  
 
-### Code Splitting
+📌 Based on class diagrams and system modeling: fileciteturn1file2
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🚀 Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 🏥 Dashboard
+- Ward-level overview of all patients
+- Color-coded risk levels:
+  - 🟢 Low (<30%)
+  - 🟡 Moderate (30–70%)
+  - 🔴 High (>70%)
 
-### Making a Progressive Web App
+### 📈 Patient Detail View
+- Interactive charts (HR, MAP, Temp, SpO₂)
+- Clinical scores (SOFA, SIRS, NEWS2)
+- Risk explanation (XAI)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🚨 Alert System
+- Instant high-risk alerts
+- Acknowledge + escalation logic
+- Alert history tracking
 
-### Advanced Configuration
+### 🔍 Search & Filter
+- Filter patients by severity
+- Search by ID or name
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## ⚙️ Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| Layer        | Tech                          |
+|-------------|-------------------------------|
+| Frontend     | React, Tailwind CSS           |
+| Charts       | Recharts                      |
+| Icons        | Lucide React                  |
+| Backend (planned) | Flask / Node.js          |
+| ML (planned) | XGBoost / Random Forest       |
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🛠️ Setup
+
+```bash
+npx create-react-app ewsd-frontend
+cd ewsd-frontend
+
+npm install recharts lucide-react
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+### Tailwind Config
+
+```js
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: { extend: {} },
+  plugins: [],
+};
+```
+
+---
+
+## ▶️ Run
+
+```bash
+npm start
+```
+
+🔗 http://localhost:3000  
+
+**Login:**
+- ID: `DR001`
+- Password: anything
+
+---
+
+## 🧪 Testing (Selenium Ready)
+
+Uses `data-testid` attributes for automation.
+
+Example:
+
+```python
+driver.find_element(By.CSS_SELECTOR, '[data-testid="login-submit"]').click()
+```
+
+---
+
+## 📊 Requirements Coverage
+
+| Requirement | Feature |
+|------------|--------|
+| REQ-1 | Data polling simulation |
+| REQ-5 | Risk classification |
+| REQ-7 | Explainable AI |
+| REQ-10 | Alert acknowledgment |
+| REQ-13 | Interactive charts |
+
+---
+
+## 🎯 Project Goals
+
+- Reduce sepsis mortality through early detection  
+- Automate clinical scoring systems  
+- Provide real-time decision support  
+- Improve hospital operational efficiency  
+
+---
+
+## 📸 Future Improvements
+
+- 🔗 Backend integration with real EHR (FHIR APIs)  
+- 📱 Mobile support for clinicians  
+- 🧠 Live ML inference engine  
+- ☁️ Cloud deployment   
+
+---
+
+## ⭐ Contribute
+
+Feel free to fork, improve UI/UX, or integrate backend ML models.
+
+---
+
+## 📄 License
+
+MIT License
